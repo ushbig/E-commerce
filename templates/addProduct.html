@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+    <div class=" container">
+        {% include 'message.html' %}
+
+        <div class="row">
+            <div class=" col-md-2">
+
+            </div>
+            
+            <div class="col-md-8"> 
+                <h2 class="text-center bg-info  p-2">Add a product</h2>
+
+                    <form action="/addproduct" method="POST" enctype="multipart/form-data" name="Addproducts" class="Addproducts">
+                        
+                        <div class="form-group">
+                            <input class="form-control" type="text" aria-describedby="Name" placeholder=" First Name" name="name" required>
+                        </div>
+                    
+                    
+                        <div class="form-group">
+                            <input class="form-control" type="number"  placeholder="ADD product price" name="price" required>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="number" placeholder="ADD product discount" name="discount" required>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" placeholder="ADD  Stock" name="stock" required>
+                        </div>
+                        <div>
+                            <label for="brand">Add a brand</label>
+                            <select name="brand" id="brand" class="form-control"required>
+                                <option value="">Select A brand</option>
+                               {% for brand in brands %}
+                                    <option value="{{brand.id}}">{{brand.name}}</option>
+
+                               {% endfor %}
+                            </select>
+                        </div>
+                            
+
+                            <label for="category">Add a category</label>
+                            <select name="category" id="category" class="form-control" required>
+                                <option value="">Select a Category</option>
+                                {% for category in categories %}
+                                    <option value="{{category.id}}">{{category.name}}</option>
+
+                                {% endfor %}
+                
+
+                                
+                            </select>
+
+
+
+                            </select>
+                        <div class="form-group">
+                            <input class="form-control" type="text" placeholder="ADD product color" name="colors" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" type="text" placeholder="ADD product description" name="desc" required></textarea>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                
+                                <div class="form-group col-md-4">
+                                    <input class="form-control col-md-4" type="file"    name="image_1" value="image only" >
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <input class="form-control col-md-4" type="file"   name="image_2" >
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <input class="form-control col-md-4" type="file"   name="image_3">
+                                </div>
+                            </div>
+
+                        </div>
+                        <input type="submit" value="Add product " class="btn btn-info mt-2">
+                    </form>
+            </div>
+        </div>
+    </div>
+    
+{% endblock content %}

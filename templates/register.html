@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block content%}
+{% include 'message.html' %}
+<div class="text-center h1  text-danger">Register</div>
+<div class="container"> 
+    <form action="/register" enctype="multipart/form-data" class="RegistrationForm" method="POST">
+        <div class="form-group">
+            <input class="form-control" type="text" aria-describedby="Name" placeholder=" First Name" name="name" required>
+        </div>
+    
+        <div class="form-group">
+            <input class="form-control" type="text"  placeholder="User name" name="username" required >
+        </div>
+    
+        <div class="form-group">
+            <input class="form-control" type="email" aria-label="Enter Email address" placeholder="Enter Email address" name="email" required>
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="password" aria-label="Enter password" placeholder="Enter password" name="password" required>
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="password" aria-label="Confirm password" placeholder="Confirm password" name="confirm" required>
+        </div>
+        
+            <input class="form-control" type="file"  name="photo">
+        
+        <br>
+        
+        <input class=" btn btn-secondary" type="submit" value="Subcribe"> 
+    </form>
+    
+{% endblock content %}
